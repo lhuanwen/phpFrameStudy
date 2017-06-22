@@ -23,4 +23,5 @@ include CORE.'/common/function.php';
 
 include CORE.'/leo.php';
 
+spl_autoload_register('\core\leo::load');
 \core\leo::run();
