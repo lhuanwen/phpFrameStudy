@@ -2,13 +2,14 @@
 
 namespace app\controller;
 
-class indexController
+class indexController extends \core\leo
 {
-    public function index(){
-        p('it is index');
-        $model = new \core\lib\module();
-        $sql = "select * from info";
-        $res = $model->query($sql);
-        p($res->fetchAll());
+    public function index()
+    {
+        $title = '视图文件';
+        $data = 'hello world';
+        $this->assign('title', $title);
+        $this->assign('data', $data);
+        $this->display('index/index.html');
     }
 }
