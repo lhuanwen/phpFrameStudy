@@ -4,7 +4,7 @@ namespace core\lib;
 
 class route
 {
-    public $ctrl;
+    public $controller;
     public $action;
     public function __construct()
     {
@@ -17,7 +17,7 @@ class route
           $path = $_SERVER['REQUEST_URI'];
           $patharr = explode('/', trim($path, '/'));
           if (isset($patharr[0])){
-              $this->ctrl = $patharr[0];
+              $this->controller = $patharr[0];
           }
           unset($patharr[0]);
           if (isset($patharr[1])){
@@ -38,7 +38,7 @@ class route
           }
 
        }else {
-          $this->ctrl = 'index';
+          $this->controller = 'index';
           $this->action = 'index';
        }
     }

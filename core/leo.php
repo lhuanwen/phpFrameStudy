@@ -8,7 +8,21 @@ class leo
     static public function run()
     {
         $route = new \core\lib\route();
-        p($route);
+        $ctrlClass = $route->controller;
+        $action = $route->action;
+        $ctrlFile = APP.'/controller/'.$ctrlClass.'Controller.php';
+        $ctrlClass = '\\'.MODULE.'\controller\\'.$ctrlClass.'Controller';
+        if (is_file($ctrlFile)){
+            include $ctrlFile;
+            $controller = new $ctrlClass;
+            if(method_exists($controller, $action)){
+                $controller->$action();
+            }else{
+                throw new \Exception($ctrlClass."找不到方法".$action.'()');
+            }
+        }else {
+            throw new \Exception("找不到控制器".$ctrlClass);
+        }
     }
 
     static public function load($class)

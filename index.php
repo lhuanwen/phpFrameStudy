@@ -10,6 +10,7 @@
 define('PATH', realpath('./'));
 define('CORE', PATH.'/core');
 define('APP', PATH.'/app');
+define('MODULE', 'app');
 
 define('DEBUG', true);
 
