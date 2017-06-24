@@ -7,8 +7,8 @@ class leo
     public static $classMap = array();
     static public function run()
     {
-        p('ok');
-        $route = new \core\route();
+        $route = new \core\lib\route();
+        p($route);
     }
 
     static public function load($class)
