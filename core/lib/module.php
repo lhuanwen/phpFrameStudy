@@ -2,15 +2,15 @@
 
 namespace core\lib;
 
+use core\lib\conf;
+
 class module extends \PDO
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=test';
-        $username = 'root';
-        $passwd = '';
+        $db = conf::all('db');
         try {
-            parent::__construct($dsn, $username, $passwd);
+            parent::__construct($db['DSN'], $db['USERNAME'], $db['PASSWD']);
         } catch (\Exception $e) {
             p($e->getMessage());
         }
