@@ -9,6 +9,7 @@ class leo
 
     static public function run()
     {
+        \core\lib\log::init();
         $route = new \core\lib\route();
         $ctrlClass = $route->controller;
         $action = $route->action;
@@ -19,6 +20,7 @@ class leo
             $controller = new $ctrlClass;
             if (method_exists($controller, $action)) {
                 $controller->$action();
+                \core\lib\log::log('ctrl:'.$ctrlClass.' '.'action'.$action);
             } else {
                 throw new \Exception($ctrlClass . "找不到方法" . $action . '()');
             }
