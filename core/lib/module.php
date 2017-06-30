@@ -9,9 +9,9 @@ class module extends \PDO
         $dsn = 'mysql:host=localhost;dbname=test';
         $username = 'root';
         $passwd = '';
-        try{
-           parent::__construct($dsn, $username, $passwd);
-        }catch (\Exception $e){
+        try {
+            parent::__construct($dsn, $username, $passwd);
+        } catch (\Exception $e) {
             p($e->getMessage());
         }
     }
