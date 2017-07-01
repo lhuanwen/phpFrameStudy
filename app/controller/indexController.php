@@ -6,7 +6,8 @@ class indexController extends \core\leo
 {
     public function index()
     {
-        new \core\lib\module();
+//        new \core\lib\module();
+//        dump($_SERVER);
         $title = '视图文件';
         $data = 'hello world';
         $this->assign('title', $title);
