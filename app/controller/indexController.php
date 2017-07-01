@@ -2,16 +2,15 @@
 
 namespace app\controller;
 
-class indexController extends \core\leo
+use app\model\cModel;
+use core\leo;
+
+class indexController extends leo
 {
     public function index()
     {
-//        new \core\lib\module();
-//        dump($_SERVER);
-        $title = '视图文件';
-        $data = 'hello world';
-        $this->assign('title', $title);
-        $this->assign('data', $data);
-        $this->display('index/index.html');
+        $model = new cModel();
+        $res = $model->lists();
+        dump($res);
     }
 }
