@@ -9,8 +9,8 @@ class indexController extends leo
 {
     public function index()
     {
-        $model = new cModel();
-        $res = $model->lists();
-        dump($res);
+        $data = 'hello world';
+        $this->assign('data', $data);
+        $this->display('index/index.html');
     }
 }

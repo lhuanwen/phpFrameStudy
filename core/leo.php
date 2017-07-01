@@ -58,10 +58,19 @@ class leo
 
     public function display($file)
     {
-        $file = APP . '/views/' . $file;
-        if ($file) {
-            extract($this->assign);
-            include $file;
+        $path = APP . '/views/' . $file;
+        if ($path) {
+//            extract($this->assign);
+            \Twig_Autoloader::register();
+
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => PATH.'/log/twig',
+                'debug' => DEBUG
+            ));
+            $template = $twig->load($file);
+            $template->display($this->assign ? $this->assign : '');
+
         }
     }
 }
